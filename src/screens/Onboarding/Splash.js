@@ -1,7 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+
 
 const Splash = () => {
+    const navigation= useNavigation()
+
     return (
         <View style={{ margin: 10, flex: 1 }}>
 

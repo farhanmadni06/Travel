@@ -1,7 +1,10 @@
 import { View, Text, Image, FlatList, ImageBackground, StyleSheet, Touchable, TouchableOpacity, Dimensions } from 'react-native'
 import React, { useRef } from 'react'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
 
 const Slider1 = () => {
+  const navigation = useNavigation()
+
 
   const flatlistref = useRef()
 
@@ -20,7 +23,7 @@ const Slider1 = () => {
       txt2: 'lets explore\nthe world  ',
       // txt3: 'the world',
       txt4: 'lets explore the world with us with just few clicks',
-      
+
     },
     {
       img: require('../img/slider3.jpg'),
@@ -32,12 +35,12 @@ const Slider1 = () => {
 
   ]
 
-  const handlepages = (index) =>{
-    if(index+1<Images.length){
-    flatlistref.current.scrollToIndex({index:index+1})
+  const handlepages = (index) => {
+    if (index + 1 < Images.length) {
+      flatlistref.current.scrollToIndex({ index: index + 1 })
     }
-    else{
-      
+    else {
+      navigation.navigate('SignUp')
     }
   }
 
@@ -50,37 +53,45 @@ const Slider1 = () => {
       horizontal={true}
       renderItem={({ item, index }) => {
         return (
+
           <ImageBackground style={styles.bg} resizeMode='cover' source={item.img}>
 
-            <View style={styles.View}>
+            <View style={{ flex: 1, justifyContent: 'center', padding: '7%' }}  >
               <View style={styles.View2}>
               </View>
               <Text style={styles.txt2}>{item.txt1}</Text>
               <Text style={styles.txt3} >{item.txt2}</Text>
               <Text style={styles.txt3} >{item.txt3}</Text>
               <Text style={styles.txt4}>{item.txt4}</Text>
+            </View>
 
-              <View style={{ marginTop: 30, gap: 10, justifyContent: 'center',  flexDirection: 'row', }}>
-               
-                <View style={{ width: '32%', height: 3, backgroundColor: 'white' }}>
-                </View>
+            
 
-                <View style={{ width: '32%', height: 3, backgroundColor: 'lightgrey' }}>
-                </View>
+            <View style={{ marginBottom: '7%', padding: '7%' }}>
 
-                <View style={{ width: '32%', height: 3, backgroundColor: 'lightgrey' }}>
-                </View>
+            <View style={{
+              gap: 10,
+              justifyContent: 'center',
+              flexDirection: 'row',
+              marginBottom: '20%'
+            }}>
+              
+              <View style={{ width: '30%', height: 3, backgroundColor: 'white' }}>
+              </View>
 
+              <View style={{ width: '30%', height: 3, backgroundColor: 'lightgrey' }}>
+              </View>
+
+              <View style={{ width: '30%', height: 3, backgroundColor: 'lightgrey' }}>
               </View>
 
             </View>
-
-            <TouchableOpacity
-            onPress={()=>handlepages(index)}
-            style={ styles.button}>
-              <Text style={{fontWeight: 'bold',fontSize: 15,color:'black'}}>Next</Text>
-            </TouchableOpacity>
-
+              <TouchableOpacity
+                onPress={() => handlepages(index)}
+                style={styles.button}>
+                <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black' }}>Next</Text>
+              </TouchableOpacity>
+            </View>
           </ImageBackground>
 
         )
@@ -131,11 +142,11 @@ const styles = StyleSheet.create({
   },
   bg: {
     // flex: 1,
-    height:Dimensions.get('window').height,
-    width:Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
     // height: 1000,
     // width: 500,
-    padding: 30,
+    // padding: 30,
     justifyContent: 'center',
   },
   slider: {
@@ -146,13 +157,11 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#FCD240',
-    width: '90%',
+    width: '100%',
     alignItems: 'center',
-    position: 'absolute',
-    bottom: '10%',
-    borderRadius: 10,
-padding:10,
-left:'13%'
+    borderRadius: 15,
+    padding: '5%',
+
   }
 }
 )

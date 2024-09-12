@@ -1,41 +1,56 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+
 
 const Forgot = () => {
+    const navigation= useNavigation()
+    
+
     return (
-        <View style={{ margin: 20 ,flex:1}}>
+        <View style={{padding:'7%',flex:1}}>
+        <View style={{ flex:1}}>
+
+    <TouchableOpacity  onPress={()=> navigation.navigate('SignUp') }>
 
             <FontAwesome6
                 name='arrow-left-long'
                 size={30}
                 color='black'
             />
-            <Text style={{ fontSize: 20, marginTop: '16%' }}>Input Your Email</Text>
-            <Text style={{ fontSize: 35, marginTop: 10, color: 'black' }}>Forgot Your Passwords</Text>
+           </TouchableOpacity>
+            <Text style={{ fontSize: 19, marginTop: '16%' }}>Input Your Email</Text>
+            <Text style={{ fontSize: 35, marginTop: 10, color: 'black' }}>Forgot Your Password?</Text>
 
             <View style={styles.input}>
-                <Text style={{
-                    position: 'absolute',
-                    top: -10,
-                    left: 25,
-                    backgroundColor: 'white',
-                    color: '#FCD240',
-                }}>Email</Text>
-
+            <Text style={{
+                        position: 'absolute',
+                        top: -15,
+                        left: 25,
+                        padding:5,
+                        backgroundColor: 'white',
+                        color: '#FCD240',
+                    }}>Email</Text>
                 <TextInput
-                    style={{ width: '90%' }}
-                    placeholder='farhanmadni91@gmail.com'
+                    style={{ width: '90%', marginLeft:10}}
+                    placeholder='Ali@gmail.com'
                 />
 
             </View>
 
-            <TouchableOpacity style={styles.button2}>
+            
+
+        </View>
+        <TouchableOpacity 
+             onPress={()=> navigation.navigate('NewPassword') }
+
+            style={styles.button2}>
                 <Text style={{
                     fontWeight: 'bold',
                     fontSize: 15,
                     color: 'black'
-                }}>Sign In</Text>
+                }}>Submit</Text>
             </TouchableOpacity>
 
         </View>
@@ -81,22 +96,21 @@ const styles = StyleSheet.create({
 
    
     button2: {
-        width: '90%',
+        width: '100%',
         backgroundColor: '#FCD240',
         alignItems: 'center',
-        borderRadius: 10,
-        padding: 14,
+        borderRadius: 20,
+        padding: '5%',
         alignSelf: 'center',
-        position:'absolute',
-        bottom:0
+      
     },
     input: {
-        width: '90%',
+        width: '100%',
         borderRadius: 15,
         borderWidth: 1,
         padding: 2,
         alignSelf: 'center',
-        marginTop: '30%',
+        marginTop: '10%',
         borderColor: '#FCD240',
 
     },
