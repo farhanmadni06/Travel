@@ -50,7 +50,7 @@ const App = () => {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{   headerShown: false }}>
         {splash ?
 
           <Stack.Screen name="Splash" component={Splash} />
